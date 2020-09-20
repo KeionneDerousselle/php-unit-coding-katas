@@ -25,14 +25,9 @@ class StringCalculator
 
     public function add(string $numbers): int
     {
-        if (!$numbers) {
-            return 0;
-        }
-
-        $intNums = $this->parseNumbers($numbers);
         $numsToAdd = [];
 
-        foreach ($intNums as $num) {
+        foreach ($this->parseNumbers($numbers) as $num) {
             if ($num < self::MIN_NUMBER_ALLOWED) {
                 throw new Exception('The string calculator cannot add numbers less than ' . self::MAX_NUMBER_ALLOWED . '.');
             }
